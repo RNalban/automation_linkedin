@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="LinkedIn" thread-count="1" preserve-order="true">
+    <test name="Request Connection">
+        <classes>
+            <class name="sendConnectionRqTest"></class>
+        </classes>
+    </test>
+</suite>

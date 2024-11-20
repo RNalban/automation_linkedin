@@ -12,7 +12,8 @@ public class ExcelHandler {
     public static String firstName;
     public static String lastName;
     public static String link;
-    Contact contact = new Contact(firstName,lastName,link);
+    public static String company;
+    Contact contact = new Contact(firstName,lastName,link,company);
 
     public static List<Contact> getContactsFromExcel(int maxRows) throws Exception {
 
@@ -27,9 +28,11 @@ public class ExcelHandler {
             if (row == null) continue; // Skip empty rows
 
             String firstName = row.getCell(1).getStringCellValue(); // Column 1: First Name
-            String lastName = row.getCell(2).getStringCellValue();  // Column 2: Last Name
-            String link = row.getCell(4).getStringCellValue();      // Column 3: Link
-            contacts.add(new Contact(firstName, lastName, link));
+            String lastName = row.getCell(2).getStringCellValue();
+            String company = row.getCell(4).getStringCellValue();// Column 2: Last Name
+            String link = row.getCell(5).getStringCellValue();
+            // Column 3: Link
+            contacts.add(new Contact(firstName, lastName, link,company));
 
         }
         workbook.close();
@@ -42,24 +45,4 @@ public class ExcelHandler {
 
     }
 
-    public static void main(String[] args) {
-        try {
-            List<Contact> contacts = getContactsFromExcel(10);
-
-            // Store data in variables or use as needed
-            for (Contact contact : contacts) {
-                String firstName = contact.getFirstName();
-                String lastName = contact.getLastName();
-                String link = contact.getLink();
-
-                // Example: Print the data
-                System.out.println("First Name: " + firstName);
-                System.out.println("Last Name: " + lastName);
-                System.out.println("Link: " + link);
-                System.out.println("---------------");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

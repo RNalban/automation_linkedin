@@ -36,15 +36,4 @@ private static Properties properties;
         return password;
     }
 
-    public static String getProxy(String accountKey) {
-        return properties.getProperty(accountKey + ".proxy");
-    }
-    public static int getTotalAccounts() {
-        int count = 0;
-        while (properties.containsKey("account" + (count + 1) + ".username")) {
-            count++;
-        }
-        return count;
-    }
-
 }

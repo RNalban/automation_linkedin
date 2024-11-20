@@ -13,7 +13,7 @@
             };
         }
 
-        @Test(dataProvider = "accounts")
+        @Test(dataProvider = "accounts",description = "The user login into their linkedin account")
         public void Login(String accountKey, String username, String password)  {
                 HomePage homePage = new HomePage(driver);
                 SignIn signIn = homePage.goToSignIn();

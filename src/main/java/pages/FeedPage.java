@@ -1,10 +1,7 @@
 package pages;
 
 import org.openqa.selenium.*;
-import utils.Paths;
 import utils.Wait;
-
-import java.util.List;
 
 public class FeedPage {
     protected WebDriver driver;
