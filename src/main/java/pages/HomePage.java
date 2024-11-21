@@ -12,10 +12,10 @@ public class HomePage {
 
 
     public HomePage(WebDriver driver){
-         this.driver=driver;
+        this.driver=driver;
         Wait.waitForElementToBeClickable(driver,signIn);
     }
- public SignIn goToSignIn(){
+    public SignIn goToSignIn(){
         driver.findElement(signIn).click();
         return new SignIn(driver);
     }

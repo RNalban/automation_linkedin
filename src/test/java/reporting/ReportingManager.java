@@ -1,10 +1,7 @@
 package reporting;
 import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import org.testng.ITestResult;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,5 +33,36 @@ public class ReportingManager {
                 extent.flush();
             }
         }
+    public static String createTable(int columns, int rows, String[] columnNames, String[][] data) {
+        StringBuilder tableHTML = new StringBuilder();
+
+        // Start table HTML
+        tableHTML.append("<table border='1' cellpadding='5' cellspacing='0'>");
+
+        // Create table header
+        tableHTML.append("<tr>");
+        for (int i = 0; i < columns; i++) {
+            tableHTML.append("<th>").append(columnNames[i]).append("</th>");
+        }
+        tableHTML.append("</tr>");
+
+        // Create table rows
+        for (int i = 0; i < rows; i++) {
+            tableHTML.append("<tr>");
+            for (int j = 0; j < columns; j++) {
+                tableHTML.append("<td>").append(data[i][j]).append("</td>");
+            }
+            tableHTML.append("</tr>");
+        }
+        tableHTML.append("</table>");
+
+        return tableHTML.toString();
     }
+
+
+
+
+}
+
+
 

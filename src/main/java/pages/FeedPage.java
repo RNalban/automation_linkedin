@@ -22,7 +22,7 @@ public class FeedPage {
     }
 
     public void search(String input){
-    driver.findElement(searchInput).sendKeys(input+ Keys.ENTER);
+        driver.findElement(searchInput).sendKeys(input+ Keys.ENTER);
 
     }
 
@@ -48,6 +48,7 @@ public class FeedPage {
         driver.get(profileLink);
         return new ProfilePage(driver); // Return a ProfilePage object
     }
+
 
 
 }

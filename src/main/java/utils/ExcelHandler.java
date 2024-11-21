@@ -8,12 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExcelHandler {
-    private static String FILE_PATH = System.getProperty("user.dir") + "/data/LinkedIn_Profiles.xlsx";
+    private static final String FILE_PATH = System.getProperty("user.dir") + "/data/LinkedIn_Profiles.xlsx";
     public static String firstName;
     public static String lastName;
     public static String link;
     public static String company;
-    Contact contact = new Contact(firstName,lastName,link,company);
 
     public static List<Contact> getContactsFromExcel(int maxRows) throws Exception {
 
@@ -27,9 +26,9 @@ public class ExcelHandler {
             Row row = sheet.getRow(i);
             if (row == null) continue; // Skip empty rows
 
-            String firstName = row.getCell(1).getStringCellValue(); // Column 1: First Name
+            String firstName = row.getCell(1).getStringCellValue();
             String lastName = row.getCell(2).getStringCellValue();
-            String company = row.getCell(4).getStringCellValue();// Column 2: Last Name
+            String company = row.getCell(4).getStringCellValue();
             String link = row.getCell(5).getStringCellValue();
             // Column 3: Link
             contacts.add(new Contact(firstName, lastName, link,company));
